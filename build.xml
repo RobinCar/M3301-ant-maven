@@ -1,0 +1,46 @@
+<project name="JWallet" default="run" basedir=".">
+
+    <property name="build.dir" value="./classes/main"/>
+    <property name="src.dir" value="./src/main/java/jwallet"/>
+    <property name="jar.dir" value="./jar"/>
+
+    <path id="classpath">
+        <fileset dir="${build.dir}">
+            <include name="**/*.class"/>
+        </fileset>
+        <pathelement path="${build.dir}"/>
+    </path>
+	
+    <target name="clean"> 
+        <delete dir="${build.dir}"/> 
+        <delete dir="${jar.dir}"/> 
+		<echo message="all files cleaned"/>
+    </target> 
+    
+    <target name="build" depends="clean"> 
+        <mkdir dir="${build.dir}" />
+
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}" failonerror="true">
+            <classpath refid="classpath" />
+        </javac>
+        <echo message = "build successfully" />
+		<echo message = "classes compiled"/>
+    </target>
+    
+    <target name="jar" depends="build" > 
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/JWallet.jar" basedir="${build.dir}"> 
+            <manifest> 
+                <attribute name="Main-Class" value="jwallet.ui.JWalletFrame"/> 
+            </manifest>			
+        </jar> 
+		<echo message="jar created"/>
+    </target> 
+    
+    <target name="run" depends="jar"> 
+        <java jar="${jar.dir}/JWallet.jar" fork="true">
+            <classpath refid="classpath"/>
+        </java>
+    </target>
+
+</project>
