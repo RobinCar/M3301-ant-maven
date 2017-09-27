@@ -127,19 +127,6 @@ public class JWalletFrame extends javax.swing.JFrame {
 
 
     private void updateMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        for (int i = 0; i < this.table.getRowCount(); i++) {
-            JSONObject obj = new JSONObject();
-            obj.put("URL", this.table.getRow(i).getColumn(0).getValue());
-            obj.put("Identifiant", this.table.getRow(i).getColumn(1).getValue());
-            obj.put("Mot de passe", this.table.getRow(i).getColumn(2).getValue());
-            obj.put("Commentaire", this.table.getRow(i).getColumn(3).getValue());
-            try (FileWriter file = new FileWriter(".")) {
-                file.write(obj.toJSONString());
-                file.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private void removeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
