@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+
+/*task hello {
+    println "Hello"
+}*/
+
+tasks.withType(JavaCompile) {
+    classpath = files('.')
+    destinationDir = file('.')
+    source = fileTree(dir: '.', include: '*/*.java')
+    options.fork = true
+
+
+    //enable incremental compilation
+    options.incremental = true
+}
