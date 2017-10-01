@@ -129,23 +129,24 @@ public class JWalletFrame extends javax.swing.JFrame {
 
 
     private void updateMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        try (FileWriter file = new FileWriter("saves.json"){
-        	 for (int i = 0; i < this.table.getRowCount(); i++) {
+        try {
+            FileWriter file = new FileWriter("saves.json");
+            for (int i = 0; i < this.table.getRowCount(); i++) {
                 JSONObject obj = new JSONObject();
-				obj.put("URL", this.table.getValueAt(i,0));
-				obj.put("Identifiant", this.table.getValueAt(i,1));
-				obj.put("Mot de passe", this.table.getValueAt(i,2));
-	            obj.put("Commentaire", this.table.getValueAt(i,3));
-	            file.write(obj.toString());
-        	 }
-        	 file.flush();
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+                obj.put("URL", this.table.getValueAt(i,0));
+                obj.put("Identifiant", this.table.getValueAt(i,1));
+                obj.put("Mot de passe", this.table.getValueAt(i,2));
+                obj.put("Commentaire", this.table.getValueAt(i,3));
+                file.write(obj.toString());
+            }
+            file.flush();
+        } catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 

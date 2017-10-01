@@ -1,21 +1,26 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
+version = '1.0'
+
+mainClassName = "jwallet.ui.JWalletFrame"
 
 repositories {
     mavenCentral()
 }
 
-task hello {
-    println "Hello"
+dependencies {
+    compile group: 'org.json', name: 'json', version: '20170516'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main']
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {
-    classpath = files('.')
-    destinationDir = file('.')
-    source = fileTree(dir: '.', include: '*/*.java')
     options.fork = true
-
-
-    //enable incremental compilation
-    options.incremental = true
 }
