@@ -5,9 +5,9 @@ repositories {
     mavenCentral()
 }
 
-/*task hello {
+task hello {
     println "Hello"
-}*/
+}
 
 tasks.withType(JavaCompile) {
     classpath = files('.')

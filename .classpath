@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="./src/main/java"/>
-	<classpathentry kind="jar.dir" path="./jar"/>
-	<classpathentry kind="lib" path="./java-json.jar"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="lib" path="jar/JWallet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/robin/OneDrive/Documents/Info/Prog/M3301/JWallet/lib/java-json.jar"/>
 	<classpathentry kind="output" path="bin"/>
-	<classpathentry kind="build" path="./classes/main"/>
 </classpath>

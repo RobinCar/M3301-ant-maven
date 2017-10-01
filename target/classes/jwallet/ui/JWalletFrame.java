@@ -129,8 +129,6 @@ public class JWalletFrame extends javax.swing.JFrame {
 
 
     private void updateMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-<<<<<<< HEAD
-=======
         try (FileWriter file = new FileWriter("saves.json")){
         	 for (int i = 0; i < this.table.getRowCount(); i++) {
                 JSONObject obj = new JSONObject();
@@ -148,7 +146,6 @@ public class JWalletFrame extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
->>>>>>> b783b94d6abd4aca9d06e00d558530cbf7c134cc
     }
     
 

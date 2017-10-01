@@ -8,6 +8,9 @@
         <fileset dir="${build.dir}">
             <include name="**/*.class"/>
         </fileset>
+    	<fileset dir="./lib/">
+    	    <include name="*.jar"/>
+    	</fileset>
         <pathelement path="${build.dir}"/>
     </path>
 	
@@ -32,7 +35,8 @@
         <jar destfile="${jar.dir}/JWallet.jar" basedir="${build.dir}"> 
             <manifest> 
                 <attribute name="Main-Class" value="jwallet.ui.JWalletFrame"/> 
-            </manifest>			
+            </manifest>	
+        	<zipgroupfileset dir="./lib/" includes="*.jar"/>
         </jar> 
 		<echo message="jar created"/>
     </target> 
