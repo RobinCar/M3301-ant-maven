@@ -2,43 +2,64 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <url>http://maven.apache.org</url>
-
+	
   <properties>
     <project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source> 
   </properties>
   
-  <groupId>fr.univ.ub.apps</groupId>
-  <artifactId>fr.univ.ubs.app.framework</artifactId>
+  <groupId>jwallet.ui</groupId>
+  <artifactId>jwallet.ui.framework</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>The framework</name>
-  <description> ...</description>
 	
   <dependencies>
     <dependency>
 	  <groupId>org.json</groupId>
 	  <artifactId>json</artifactId>
-	  <version>20141113</version>
+	  <version>20170516</version>
 	  <scope>provided</scope>
  	</dependency>
   </dependencies>
-  <build>
-  	<plugins>
-	  <plugin>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-jar-plugin</artifactId>
-	    <configuration>
-	        <archive>
-	            <manifest>
-	                <addClasspath>true</addClasspath>
-	                <classpathPrefix>lib/</classpathPrefix>
-	                <mainClass>
-	                    jwallet.ui.JWalletFrame
-	                </mainClass>
-	            </manifest>
-	        </archive>
-	    </configuration>
-	 </plugin>
-	</plugins>
-  </build>
+  
+ <build>
+    <resources>
+        <resource>
+            <directory>./src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </resource>
+        <resource>
+            <directory>lib/org/</directory>
+            <targetPath>org/</targetPath>
+        </resource>
+    </resources>
+	<pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>jwallet.ui.JWalletFrame</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+    			<groupId>org.codehaus.mojo</groupId>
+    			<artifactId>exec-maven-plugin</artifactId>
+    			<configuration>
+      				<mainClass>jwallet.ui.JWalletFrame</mainClass>
+    			</configuration>
+  			</plugin>
+        </plugins>
+    </pluginManagement>
+ </build>
 </project>
